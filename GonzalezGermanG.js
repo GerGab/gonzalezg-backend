@@ -1,44 +1,55 @@
 
-class usuario{
-    constructor(nombre,apellido,libros,mascotas){
+class Container{
 
-        !libros && (libros=[]);
-        !mascotas && (mascotas=[]);
-
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.libros = libros;
-        this.mascotas = mascotas;
+    constructor(){
+        this.objects = [];
+        this.id = 0;
     }
 
-    getFullName(){
-        return (`${this.nombre} ${this.apellido}`)
+    save(object){
+        this.objects.push({id:this.id,object:object});
+        this.id +=1;
     }
 
-    addMascota(mascota){
-        this.mascotas.push(mascota)
+    getById(id){
+        return this.objects[id].object
     }
 
-    countMascotas(){
-        return this.mascotas.length
+    getAll(){
+        return this.objects.map(item => item.object)
     }
 
-    addBook(nombre,autor){
-        this.libros.push({nombre:nombre,autor:autor})
+    deleteById(id){
+        this.objects = this.objects.filter(item => item.id != id)
     }
 
-    getBookNames(){
-        return this.libros.map(libro => libro.nombre)
+    deleteAll(){
+        this.objects = []
     }
 }
 
 // Segmento designado a mostrar la funcionalidad de la clase creada
 
-const soyYo = new usuario("German","Gonzalez")
-console.log(soyYo.getFullName())
-soyYo.addMascota("gato")
-soyYo.addMascota("perro")
-console.log(soyYo.countMascotas())
-soyYo.addBook("El señor de los anillos la comunidad del anillo","Tolkien")
-soyYo.addBook("El señor de los anillos Las dos Torres","Tolkien")
-console.log(soyYo.getBookNames())
+const miContainer = new Container()
+miContainer.save({
+    id: 13224,
+    title: "Remera",
+    price: 450,
+    thumbnail: "http://imagen.png"
+})
+miContainer.save({
+    id: 332115,
+    title: "Camiseta",
+    price: 550,
+    thumbnail: "http://imagen2.png"
+})
+console.log("getById")
+console.log(miContainer.getById(0))
+console.log("getAll")
+console.log(miContainer.getAll())
+console.log("deleteById")
+miContainer.deleteById(1)
+console.log(miContainer.getAll())
+console.log("deleteAll")
+miContainer.deleteAll()
+console.log(miContainer.getAll())
