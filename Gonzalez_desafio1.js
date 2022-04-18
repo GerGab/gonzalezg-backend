@@ -30,7 +30,7 @@ class Container{
     }
 
     getAll(){
-        return this.objects.length===0 ? null:this.objects
+        return this.objects
     }
 
     deleteById(id){

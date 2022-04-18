@@ -38,7 +38,7 @@ class fileContainer{
 
     async getAll(){
         let objects = await this.readFromFile()
-        return objects.length===0 ? null:objects
+        return objects
     }
 
     async deleteById(id){
