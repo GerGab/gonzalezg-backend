@@ -25,8 +25,8 @@ class Container{
     }
 
     getById(id){
-        let object = this.objects.filter(item => item.id === id);
-        return object.length===0 ? null : object
+        let object = this.objects.find(item => item.id === id);
+        return object===undefined ? null : object // entiendo que podría devolver directamente el objeto y encaso que sea undefined podría seguir aplicando la misma logica pero como la consigna dice explicitamente null lo ajusto.
     }
 
     getAll(){

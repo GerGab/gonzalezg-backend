@@ -32,8 +32,8 @@ class fileContainer{
 
     async getById(id){
         let objects = await this.readFromFile()
-        let object = objects.filter(object => object.id === id)
-        return object.length===0 ? null : object
+        let object = objects.find(object => object.id === id)
+        return object===undefined ? null : object  // entiendo que podría devolver directamente el objeto y encaso que sea undefined podría seguir aplicando la misma logica pero como la consigna dice explicitamente null lo ajusto.
     }
 
     async getAll(){
