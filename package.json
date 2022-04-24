@@ -1,0 +1,27 @@
+{
+  "name": "server_gonzalezg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "start:dev": "nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GerGab/gonzalezg-backend.git"
+  },
+  "author": "gonzalezg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GerGab/gonzalezg-backend/issues"
+  },
+  "homepage": "https://github.com/GerGab/gonzalezg-backend#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
